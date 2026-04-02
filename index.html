@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devaru007 - Creative Developer | Discord Bot | Game Hosting</title>
+    <title>devaru007 - Discord Bot | Game Hosting | Minecraft Server</title>
     <style>
         * {
             margin: 0;
@@ -17,10 +17,30 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0a0a;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0033 100%);
             color: #e0e0e0;
             line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            opacity: 0.03;
+            z-index: -1;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         /* Background Music Player */
@@ -30,10 +50,10 @@
             right: 30px;
             z-index: 1000;
             background: rgba(30, 30, 30, 0.95);
-            padding: 15px 20px;
+            padding: 12px 18px;
             border-radius: 50px;
-            border: 2px solid #5865f2;
-            box-shadow: 0 8px 32px rgba(88, 101, 242, 0.3);
+            border: 2px solid #a855f7;
+            box-shadow: 0 8px 32px rgba(168, 85, 247, 0.4);
             display: flex;
             align-items: center;
             gap: 10px;
@@ -44,15 +64,15 @@
 
         .music-player:hover {
             transform: scale(1.05);
-            box-shadow: 0 12px 48px rgba(88, 101, 242, 0.5);
+            box-shadow: 0 12px 48px rgba(168, 85, 247, 0.6);
         }
 
         .music-toggle {
-            background: #5865f2;
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
             border: none;
             color: white;
-            width: 40px;
-            height: 40px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             cursor: pointer;
             font-size: 18px;
@@ -63,7 +83,6 @@
         }
 
         .music-toggle:hover {
-            background: #7289da;
             transform: scale(1.1);
         }
 
@@ -82,15 +101,15 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(10, 10, 10, 0.98);
             backdrop-filter: blur(10px);
             padding: 1rem 2rem;
             z-index: 999;
-            border-bottom: 1px solid rgba(88, 101, 242, 0.3);
+            border-bottom: 2px solid rgba(168, 85, 247, 0.3);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
         }
 
         nav .logo-section {
@@ -100,33 +119,33 @@
         }
 
         nav h1 {
-            font-size: 1.8rem;
-            background: linear-gradient(135deg, #5865f2 0%, #7289da 100%);
+            font-size: 2rem;
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: 700;
+            font-weight: 800;
         }
 
         .discord-tag {
-            background: #5865f2;
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
             color: white;
-            padding: 0.3rem 0.8rem;
+            padding: 0.4rem 1rem;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 700;
-            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
         }
 
         nav ul {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
         }
 
         nav a {
             color: #e0e0e0;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.3s ease;
             position: relative;
         }
@@ -134,11 +153,11 @@
         nav a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -8px;
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(135deg, #5865f2 0%, #7289da 100%);
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
             transition: width 0.3s ease;
         }
 
@@ -148,20 +167,20 @@
 
         /* Theme Toggle */
         .theme-toggle {
-            background: #5865f2;
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
             border: none;
             color: white;
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 20px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
         }
 
         .theme-toggle:hover {
-            background: #7289da;
             transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.5);
         }
 
         /* Hero Section */
@@ -191,118 +210,131 @@
         }
 
         .hero-content h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #5865f2 0%, #7289da 100%);
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #f43f5e 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: 800;
+            font-weight: 900;
         }
 
         .hero-content .discord-username {
-            font-size: 1.3rem;
-            color: #5865f2;
-            font-weight: 700;
+            font-size: 1.4rem;
+            color: #a855f7;
+            font-weight: 800;
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.7rem;
+            animation: pulse-text 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-text {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
         }
 
         .hero-content p {
             font-size: 1.2rem;
-            color: #a0a0a0;
+            color: #b0b0b0;
             margin-bottom: 2rem;
             line-height: 1.8;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.2rem;
             margin-bottom: 2rem;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 1rem 2rem;
+            padding: 1.1rem 2.2rem;
             border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 1rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.05rem;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            box-shadow: 0 8px 25px rgba(168, 85, 247, 0.2);
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #5865f2 0%, #7289da 100%);
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
             color: white;
-            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.3);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(88, 101, 242, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(168, 85, 247, 0.5);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-2px);
         }
 
         .btn-secondary {
             background: transparent;
-            border: 2px solid #5865f2;
-            color: #5865f2;
+            border: 2.5px solid #a855f7;
+            color: #a855f7;
         }
 
         .btn-secondary:hover {
-            background: rgba(88, 101, 242, 0.1);
-            transform: translateY(-3px);
+            background: rgba(168, 85, 247, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(-2px);
         }
 
         /* Social Links */
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
+            gap: 1.2rem;
+            margin-top: 2.5rem;
         }
 
         .social-icon {
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
-            background: rgba(88, 101, 242, 0.2);
-            border: 2px solid #5865f2;
+            background: rgba(168, 85, 247, 0.15);
+            border: 2.5px solid #a855f7;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
-            color: #5865f2;
-            font-size: 1.5rem;
-            position: relative;
+            color: #a855f7;
+            font-size: 1.6rem;
         }
 
         .social-icon:hover {
-            background: #5865f2;
+            background: #a855f7;
             color: white;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(88, 101, 242, 0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(168, 85, 247, 0.5);
         }
 
         .social-icon.discord {
-            background: #5865f2;
+            background: #a855f7;
             color: white;
-            box-shadow: 0 8px 20px rgba(88, 101, 242, 0.3);
+            box-shadow: 0 8px 20px rgba(168, 85, 247, 0.4);
         }
 
         .social-icon.discord:hover {
-            box-shadow: 0 12px 30px rgba(88, 101, 242, 0.5);
+            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.6);
         }
 
         /* Hero Image */
         .hero-image {
             position: relative;
-            height: 600px;
+            height: 650px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -312,10 +344,10 @@
             position: relative;
             width: 100%;
             height: 100%;
-            border-radius: 20px;
+            border-radius: 25px;
             overflow: hidden;
-            box-shadow: 0 25px 50px rgba(88, 101, 242, 0.3);
-            border: 3px solid #5865f2;
+            box-shadow: 0 30px 60px rgba(168, 85, 247, 0.4);
+            border: 3px solid #a855f7;
         }
 
         .image-container img {
@@ -332,238 +364,356 @@
         .image-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(88, 101, 242, 0.2) 0%, transparent 100%);
-            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.25) 0%, transparent 100%);
+            border-radius: 25px;
         }
 
-        /* Projects Section */
-        .projects {
-            padding: 4rem 2rem;
-            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+        /* Section Styles */
+        .service-section {
+            padding: 5rem 2rem;
+            border-top: 3px solid rgba(168, 85, 247, 0.3);
         }
 
-        .projects-container {
+        .service-section:nth-child(even) {
+            background: rgba(168, 85, 247, 0.05);
+        }
+
+        .service-container {
             max-width: 1400px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
-        .section-title {
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            background: linear-gradient(135deg, #5865f2 0%, #7289da 100%);
+        .service-content h2 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+
+        .service-content p {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            color: #a0a0a0;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            color: #a855f7;
             font-weight: 800;
-            text-align: center;
+            font-size: 1.3rem;
         }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: rgba(30, 30, 30, 0.8);
-            border: 2px solid rgba(88, 101, 242, 0.3);
-            border-radius: 15px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            overflow: hidden;
+        .service-image {
             position: relative;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(168, 85, 247, 0.3);
+            border: 2px solid rgba(168, 85, 247, 0.3);
         }
 
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
+        .service-image img {
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(88, 101, 242, 0.1) 0%, transparent 70%);
-            transition: all 0.3s ease;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .project-card:hover {
-            border-color: #5865f2;
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(88, 101, 242, 0.2);
+        .service-image:hover img {
+            transform: scale(1.08);
         }
 
-        .project-card:hover::before {
-            top: -20%;
-            right: -20%;
+        /* Discord Bot Section */
+        #discord-bot .service-content {
+            order: 1;
         }
 
-        .project-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        #discord-bot .service-image {
+            order: 2;
         }
 
-        .project-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #fff;
+        /* Minecraft Section */
+        #minecraft .service-content {
+            order: 2;
         }
 
-        .project-card p {
-            color: #a0a0a0;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
+        #minecraft .service-image {
+            order: 1;
         }
 
-        .project-details {
-            margin-bottom: 1.5rem;
-        }
-
-        .detail-item {
-            color: #a0a0a0;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-
-        .detail-label {
-            color: #5865f2;
-            font-weight: 600;
-        }
-
-        .project-tags {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            background: rgba(88, 101, 242, 0.2);
-            color: #5865f2;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .project-btn {
-            background: linear-gradient(135deg, #5865f2 0%, #7289da 100%);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
+        .badge {
             display: inline-block;
-        }
-
-        .project-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(88, 101, 242, 0.3);
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
         }
 
         /* Contact Section */
         .contact {
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.08) 0%, rgba(236, 72, 153, 0.05) 100%);
             text-align: center;
-            background: #0a0a0a;
-            border-top: 2px solid rgba(88, 101, 242, 0.2);
+            border-top: 3px solid rgba(168, 85, 247, 0.3);
         }
 
         .contact-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
         }
 
         .contact p {
             font-size: 1.2rem;
             color: #a0a0a0;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
         }
 
         .discord-section {
-            background: linear-gradient(135deg, rgba(88, 101, 242, 0.15) 0%, rgba(114, 137, 218, 0.1) 100%);
-            border: 3px solid #5865f2;
-            border-radius: 15px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 40px rgba(88, 101, 242, 0.2);
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(236, 72, 153, 0.1) 100%);
+            border: 3px solid #a855f7;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 15px 40px rgba(168, 85, 247, 0.2);
         }
 
         .discord-section h3 {
-            color: #5865f2;
+            color: #a855f7;
             margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-            font-weight: 800;
-        }
-
-        .discord-id-display {
             font-size: 2rem;
-            color: #fff;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #5865f2 0%, #7289da 100%);
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(88, 101, 242, 0.3);
-            font-family: 'Courier New', monospace;
-            letter-spacing: 1px;
+            font-weight: 900;
         }
 
         .discord-badge {
             display: inline-block;
-            background: #5865f2;
+            background: #a855f7;
             color: white;
-            padding: 0.5rem 1rem;
+            padding: 0.7rem 1.5rem;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
+        }
+
+        .discord-id-display {
+            font-size: 2.2rem;
+            color: white;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+            padding: 1.8rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.4);
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1.5px;
         }
 
         .discord-section p {
             font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.8;
+            color: #b0b0b0;
+        }
+
+        .copy-id-btn {
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+            box-shadow: 0 8px 25px rgba(168, 85, 247, 0.3);
+        }
+
+        .copy-id-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(168, 85, 247, 0.5);
+        }
+
+        .copy-id-btn:active {
+            transform: scale(0.98);
+        }
+
+        .copy-id-btn.copied {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            margin: 5% auto;
+            padding: 2.5rem;
+            border: 3px solid #a855f7;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 20px 60px rgba(168, 85, 247, 0.4);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close {
+            color: #a855f7;
+            float: right;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close:hover {
+            color: #ec4899;
+            transform: scale(1.2);
+        }
+
+        .modal-content h2 {
+            color: #a855f7;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            font-weight: 900;
+        }
+
+        .modal-content p {
+            color: #b0b0b0;
             margin-bottom: 1rem;
             line-height: 1.8;
         }
 
-        .copy-id-btn {
-            background: #5865f2;
-            color: white;
+        .modal-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .modal-list li {
+            color: #a0a0a0;
+            margin: 0.8rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .modal-list li::before {
+            content: '→';
+            color: #a855f7;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 0.9rem 1.5rem;
             border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
+            border-radius: 10px;
+            font-weight: 700;
             cursor: pointer;
-            font-weight: 600;
-            font-size: 0.95rem;
             transition: all 0.3s ease;
-            margin-top: 1rem;
+            min-width: 150px;
         }
 
-        .copy-id-btn:hover {
-            background: #7289da;
-            transform: scale(1.05);
+        .modal-btn-primary {
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+            color: white;
         }
 
-        .copy-id-btn.copied {
-            background: #43b581;
+        .modal-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
+        }
+
+        .modal-btn-secondary {
+            background: transparent;
+            border: 2px solid #a855f7;
+            color: #a855f7;
+        }
+
+        .modal-btn-secondary:hover {
+            background: rgba(168, 85, 247, 0.1);
+            transform: translateY(-3px);
         }
 
         /* Footer */
         footer {
-            background: rgba(0, 0, 0, 0.7);
-            border-top: 2px solid rgba(88, 101, 242, 0.3);
-            padding: 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            border-top: 2px solid rgba(168, 85, 247, 0.3);
+            padding: 2.5rem 2rem;
             text-align: center;
-            color: #a0a0a0;
-            font-size: 0.95rem;
+            color: #909090;
+            font-size: 0.98rem;
         }
 
         .footer-discord-id {
-            color: #5865f2;
-            font-weight: 700;
-            font-size: 1rem;
+            color: #a855f7;
+            font-weight: 800;
+            font-size: 1.05rem;
         }
 
         /* Responsive */
@@ -571,48 +721,63 @@
             nav {
                 flex-direction: column;
                 gap: 1rem;
+                padding: 1rem;
             }
 
             nav ul {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 0.8rem;
                 text-align: center;
             }
 
             .hero {
                 grid-template-columns: 1fr;
-                margin-top: 200px;
+                margin-top: 250px;
+                gap: 2rem;
             }
 
             .hero-content h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
 
             .hero-image {
                 height: 400px;
             }
 
-            .cta-buttons {
-                flex-direction: column;
+            .service-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
-            .btn {
-                width: 100%;
-                text-align: center;
+            .service-content h2 {
+                font-size: 2.2rem;
             }
 
             .music-player {
                 bottom: 20px;
                 right: 20px;
-                padding: 10px 15px;
+                padding: 10px 12px;
+            }
+
+            .contact h2 {
+                font-size: 2rem;
             }
 
             .discord-id-display {
                 font-size: 1.5rem;
             }
 
-            .section-title {
-                font-size: 2rem;
+            .modal-content {
+                width: 95%;
+                padding: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-buttons .btn {
+                width: 100%;
             }
         }
 
@@ -622,33 +787,86 @@
                 transform: translateY(0px);
             }
             50% {
-                transform: translateY(-20px);
+                transform: translateY(-25px);
             }
         }
 
         .float {
-            animation: float 3s ease-in-out infinite;
+            animation: float 3.5s ease-in-out infinite;
         }
 
         @keyframes pulse {
             0%, 100% {
-                box-shadow: 0 8px 20px rgba(88, 101, 242, 0.3);
+                box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
             }
             50% {
-                box-shadow: 0 12px 40px rgba(88, 101, 242, 0.6);
+                box-shadow: 0 15px 50px rgba(168, 85, 247, 0.6);
             }
         }
 
         .pulse {
-            animation: pulse 2s ease-in-out infinite;
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(168, 85, 247, 0.3);
+            border-radius: 50%;
+            border-top-color: #a855f7;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+            animation: slideUp 0.3s ease, slideDown 0.3s ease 2.7s forwards;
+            z-index: 2001;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(100%);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="animated-bg"></div>
+
     <!-- Background Music Player -->
-    <div class="music-player" id="musicPlayer">
-        <button class="music-toggle" id="musicToggle" title="Click to toggle music">🎵</button>
-        <span class="music-info">Background Music</span>
+    <div class="music-player" id="musicPlayer" title="Toggle Background Music">
+        <button class="music-toggle" id="musicToggle">🎵</button>
+        <span class="music-info">Music</span>
     </div>
 
     <audio id="bgMusic" loop>
@@ -658,158 +876,158 @@
     <!-- Navigation -->
     <nav>
         <div class="logo-section">
-            <h1>Devaru</h1>
-            <span class="discord-tag">devaru007</span>
+            <h1>devaru007</h1>
+            <span class="discord-tag">@devaru007</span>
         </div>
         <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="#discord-bot">Discord Bot</a></li>
+            <li><a href="#hosting">Game Hosting</a></li>
+            <li><a href="#minecraft">Minecraft</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        <button class="theme-toggle" id="themeToggle">🌙 Dark</button>
+        <button class="theme-toggle" id="themeToggle">🌙</button>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <div class="discord-username">💬 Discord: devaru007</div>
-            <h1>Creative Developer & Game Hosting Expert</h1>
-            <p>I'm <strong>devaru007</strong> - specialized in Discord bots, game server hosting, and Minecraft network development. Building amazing experiences for millions of players worldwide.</p>
+            <div class="discord-username">💜 discord: devaru007</div>
+            <h1>Creator & Developer</h1>
+            <p>Specializing in Discord bot development, premium game server hosting, and massive Minecraft networks. Empowering communities with innovative solutions.</p>
 
             <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">View My Projects</a>
-                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                <a href="#discord-bot" class="btn btn-primary">🤖 Discord Bot</a>
+                <a href="#hosting" class="btn btn-primary">⚡ Game Hosting</a>
+                <a href="#minecraft" class="btn btn-primary">⛏️ Minecraft</a>
             </div>
 
             <div class="social-links">
-                <a href="https://discord.com/users/devaru007" class="social-icon discord" title="Discord: devaru007">💬</a>
-                <a href="https://github.com" class="social-icon" title="GitHub">🐙</a>
-                <a href="https://youtube.com" class="social-icon" title="YouTube">▶️</a>
-                <a href="mailto:devaru007@email.com" class="social-icon" title="Email">✉️</a>
+                <a href="https://discord.com/users/devaru007" class="social-icon discord" title="Discord: devaru007" onclick="return openDiscord(event)">💬</a>
+                <a href="javascript:void(0)" class="social-icon" title="GitHub" onclick="showModal('github')">🐙</a>
+                <a href="javascript:void(0)" class="social-icon" title="YouTube" onclick="showModal('youtube')">▶️</a>
+                <a href="javascript:void(0)" class="social-icon" title="Email" onclick="sendEmail()">✉️</a>
             </div>
         </div>
 
         <div class="hero-image float">
             <div class="image-container">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" alt="devaru007 - Developer Portrait" id="heroImage">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAYABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBP/EAB4QAAICAQQDAQAAAAAAAAAAAAECAAMEBRExEhMhIv/EABUBAQEAAAAAAAAAAAAAAAAAAAMEBP/EABsRAAMAAgIDAAAAAAAAAAAAAAEAESExUWGBkcH/2gAMAwEAAhEDEQA/AOCiIgIiICIiAiIgIiICIiAiIgJ5qvWZ0yNzFz1EtEREBERAREQEREBERAREQEREBEREBERAREQEREBERAREQEREH/Z" alt="devaru007" id="heroImage">
                 <div class="image-overlay"></div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <div class="projects-container">
-            <h2 class="section-title">Featured Projects</h2>
+    <!-- Discord Bot Section -->
+    <section class="service-section" id="discord-bot">
+        <div class="service-container">
+            <div class="service-content">
+                <span class="badge">🤖 DISCORD BOTS</span>
+                <h2>Custom Discord Bot Development</h2>
+                <p>Professional Discord bots created by devaru007 with cutting-edge features for community management, moderation, entertainment, and automation.</p>
 
-            <div class="projects-grid">
-                <!-- Discord Bot Project -->
-                <div class="project-card">
-                    <div class="project-icon">🤖</div>
-                    <h3>Discord Bot</h3>
-                    <p>Custom Discord bot developed by devaru007 with advanced features and moderation tools. Perfect for community management and engagement.</p>
-                    <div class="project-details">
-                        <div class="detail-item"><span class="detail-label">Creator:</span> devaru007</div>
-                        <div class="detail-item"><span class="detail-label">Status:</span> ✅ Made & Ready</div>
-                        <div class="detail-item"><span class="detail-label">Contact:</span> DM devaru007</div>
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Discord.py</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">Custom</span>
-                    </div>
-                    <a href="https://discord.com/users/devaru007" class="project-btn">DM devaru007</a>
+                <ul class="features-list">
+                    <li>Advanced Moderation & Anti-Spam</li>
+                    <li>Music & Audio Streaming</li>
+                    <li>Custom Commands & Reactions</li>
+                    <li>Fun & Entertainment Features</li>
+                    <li>User Management & Roles</li>
+                    <li>24/7 Support & Updates</li>
+                </ul>
+
+                <p style="color: #909090; font-size: 1rem; margin-top: 1.5rem;">
+                    <strong>Interested?</strong> Contact devaru007 on Discord for custom bot development, pricing, and implementation details.
+                </p>
+
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                    <button class="btn btn-primary" onclick="openDiscordDM()">📩 DM devaru007</button>
+                    <button class="btn btn-secondary" onclick="showModal('discordbot')">📋 Info</button>
+                </div>
+            </div>
+            <div class="service-image">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAYABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBP/EAB4QAAICAQQDAQAAAAAAAAAAAAECAAMEBRExEhMhIv/EABUBAQEAAAAAAAAAAAAAAAAAAAMEBP/EABsRAAMAAgIDAAAAAAAAAAAAAAEAESExUWGBkcH/2gAMAwEAAhEDEQA/AOCiIgIiICIiAiIgIiICIiAiIgJ5qvWZ0yNzFz1EtEREBERAREQEREBERAREQEREBEREBERAREQEREBERAREQEREH/Z" alt="Discord Bot">
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Hosting Section -->
+    <section class="service-section" id="hosting">
+        <div class="service-container">
+            <div class="service-image">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAYABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBP/EAB4QAAICAQQDAQAAAAAAAAAAAAECAAMEBRExEhMhIv/EABUBAQEAAAAAAAAAAAAAAAAAAAMEBP/EABsRAAMAAgIDAAAAAAAAAAAAAAEAESExUWGBkcH/2gAMAwEAAhEDEQA/AOCiIgIiICIiAiIgIiICIiAiIgJ5qvWZ0yNzFz1EtEREBERAREQEREBERAREQEREBEREBERAREQEREBERAREQEREH/Z" alt="Game Hosting">
+            </div>
+            <div class="service-content">
+                <span class="badge">⚡ GAME HOSTING</span>
+                <h2>Premium Game Server Hosting</h2>
+                <p>Ultra-fast, reliable game server hosting through Cherry Nodes and AgHost. Powered by devaru007's expertise in server infrastructure and optimization.</p>
+
+                <h3 style="color: #a855f7; margin-top: 1.5rem; margin-bottom: 1rem; font-weight: 700;">Our Hosting Services:</h3>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <p style="color: #e0e0e0; font-weight: 700; margin-bottom: 0.5rem;">🌲 Cherry Nodes</p>
+                    <p style="color: #909090; margin-bottom: 1rem;">Premium gaming infrastructure with 99.9% uptime guarantee and global server locations.</p>
                 </div>
 
-                <!-- Cherry Nodes -->
-                <div class="project-card">
-                    <div class="project-icon">🌲</div>
-                    <h3>Cherry Nodes</h3>
-                    <p>Premium game server hosting solutions by devaru007. Reliable, fast, and scalable infrastructure for all your gaming needs.</p>
-                    <div class="project-details">
-                        <div class="detail-item"><span class="detail-label">Service:</span> Game Hosting</div>
-                        <div class="detail-item"><span class="detail-label">Speciality:</span> Minecraft & Games</div>
-                        <div class="detail-item"><span class="detail-label">Support:</span> 24/7 via devaru007</span>
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Hosting</span>
-                        <span class="tag">Gaming</span>
-                        <span class="tag">Reliable</span>
-                    </div>
-                    <a href="https://discord.com/users/devaru007" class="project-btn">Ask devaru007</a>
+                <div style="margin-bottom: 1.5rem;">
+                    <p style="color: #e0e0e0; font-weight: 700; margin-bottom: 0.5rem;">⚡ AgHost</p>
+                    <p style="color: #909090;">Ultra-low latency servers optimized for competitive gaming and large-scale multiplayer experiences.</p>
                 </div>
 
-                <!-- AgHost -->
-                <div class="project-card">
-                    <div class="project-icon">⚡</div>
-                    <h3>AgHost</h3>
-                    <p>High-performance game server hosting by devaru007 with ultra-low latency. Optimized for competitive gaming experiences.</p>
-                    <div class="project-details">
-                        <div class="detail-item"><span class="detail-label">Service:</span> Game Hosting</div>
-                        <div class="detail-item"><span class="detail-label">Performance:</span> Ultra-Fast</div>
-                        <div class="detail-item"><span class="detail-label">Global:</span> Worldwide Support</span>
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Hosting</span>
-                        <span class="tag">Fast</span>
-                        <span class="tag">Performance</span>
-                    </div>
-                    <a href="https://discord.com/users/devaru007" class="project-btn">Contact devaru007</a>
+                <ul class="features-list">
+                    <li>99.9% Uptime SLA</li>
+                    <li>Global CDN & Server Locations</li>
+                    <li>DDoS Protection</li>
+                    <li>Instant Setup & Deployment</li>
+                    <li>24/7 Expert Support</li>
+                    <li>Scalable Resources</li>
+                </ul>
+
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                    <button class="btn btn-primary" onclick="openDiscordDM()">📩 Contact Us</button>
+                    <button class="btn btn-secondary" onclick="showModal('hosting')">📋 Pricing</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Minecraft Section -->
+    <section class="service-section" id="minecraft">
+        <div class="service-container">
+            <div class="service-content">
+                <span class="badge">⛏️ MINECRAFT SERVERS</span>
+                <h2>Epic Minecraft Networks</h2>
+                <p>Massive Minecraft servers and networks created and managed by devaru007. Featuring unique game modes, thousands of active players, and premium gameplay experiences.</p>
+
+                <h3 style="color: #a855f7; margin-top: 1.5rem; margin-bottom: 1rem; font-weight: 700;">Our Minecraft Servers:</h3>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <p style="color: #e0e0e0; font-weight: 700; margin-bottom: 0.5rem;">⛏️ MineCore | Lifesteal & FFA</p>
+                    <p style="color: #909090; margin-bottom: 0.8rem;">High-action PvP server with dual game modes - Lifesteal and Free-for-All. Thousands of daily active players competing for supremacy.</p>
+                    <p style="color: #a855f7; font-size: 0.95rem;">✓ Java 1.8 - Latest | ✓ 1000+ Players | ✓ Daily Tournaments</p>
                 </div>
 
-                <!-- MineCore Server -->
-                <div class="project-card">
-                    <div class="project-icon">⛏️</div>
-                    <h3>MineCore | Lifesteal & FFA</h3>
-                    <p>Epic Minecraft server by devaru007 featuring Lifesteal and Free-for-All game modes. Join thousands of players daily!</p>
-                    <div class="project-details">
-                        <div class="detail-item"><span class="detail-label">Admin:</span> devaru007</div>
-                        <div class="detail-item"><span class="detail-label">Game Modes:</span> Lifesteal, FFA</div>
-                        <div class="detail-item"><span class="detail-label">Version:</span> Java 1.8+</span>
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Minecraft</span>
-                        <span class="tag">Lifesteal</span>
-                        <span class="tag">PvP</span>
-                    </div>
-                    <a href="https://discord.com/users/devaru007" class="project-btn">Join Now</a>
+                <div style="margin-bottom: 1.5rem;">
+                    <p style="color: #e0e0e0; font-weight: 700; margin-bottom: 0.5rem;">🌐 Ag Network</p>
+                    <p style="color: #909090; margin-bottom: 0.8rem;">Unified Minecraft ecosystem with multiple servers, game modes, and a thriving community. Cross-server compatibility and shared progression.</p>
+                    <p style="color: #a855f7; font-size: 0.95rem;">✓ Multi-Server | ✓ Growing Community | ✓ Custom Content</p>
                 </div>
 
-                <!-- Ag Network -->
-                <div class="project-card">
-                    <div class="project-icon">🌐</div>
-                    <h3>Ag Network</h3>
-                    <p>Unified Minecraft network by devaru007 with multiple game modes and servers. Complete ecosystem for gamers.</p>
-                    <div class="project-details">
-                        <div class="detail-item"><span class="detail-label">Network Admin:</span> devaru007</div>
-                        <div class="detail-item"><span class="detail-label">Game Modes:</span> Multiple</div>
-                        <div class="detail-item"><span class="detail-label">Community:</span> Growing Daily</span>
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Network</span>
-                        <span class="tag">Minecraft</span>
-                        <span class="tag">Community</span>
-                    </div>
-                    <a href="https://discord.com/users/devaru007" class="project-btn">Join Network</a>
-                </div>
+                <ul class="features-list">
+                    <li>Multiple Game Modes (PvP, Survival, SkyBlock)</li>
+                    <li>Cross-Server Compatibility</li>
+                    <li>Leaderboards & Rankings</li>
+                    <li>Custom Plugins & Features</li>
+                    <li>Weekly Events & Tournaments</li>
+                    <li>Active Community & Support</li>
+                </ul>
 
-                <!-- Additional Skills -->
-                <div class="project-card">
-                    <div class="project-icon">🚀</div>
-                    <h3>More Projects Coming</h3>
-                    <p>devaru007 is working on exciting new projects! Including advanced Discord bots, automation tools, and gaming innovations.</p>
-                    <div class="project-details">
-                        <div class="detail-item"><span class="detail-label">Developer:</span> devaru007</div>
-                        <div class="detail-item"><span class="detail-label">Updates:</span> Regular</div>
-                        <div class="detail-item"><span class="detail-label">Contact:</span> For collaborations</span>
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Upcoming</span>
-                        <span class="tag">Exciting</span>
-                        <span class="tag">Innovative</span>
-                    </div>
-                    <a href="https://discord.com/users/devaru007" class="project-btn">Stay Tuned</a>
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                    <button class="btn btn-primary" onclick="openDiscordDM()">🎮 Join Now</button>
+                    <button class="btn btn-secondary" onclick="showModal('minecraft')">📋 Info</button>
                 </div>
+            </div>
+            <div class="service-image">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAYABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBP/EAB4QAAICAQQDAQAAAAAAAAAAAAECAAMEBRExEhMhIv/EABUBAQEAAAAAAAAAAAAAAAAAAAMEBP/EABsRAAMAAgIDAAAAAAAAAAAAAAEAESExUWGBkcH/2gAMAwEAAhEDEQA/AOCiIgIiICIiAiIgIiICIiAiIgJ5qvWZ0yNzFz1EtEREBERAREQEREBERAREQEREBEREBERAREQEREBERAREQEREH/Z" alt="Minecraft Servers">
             </div>
         </div>
     </section>
@@ -817,31 +1035,137 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="contact-content">
-            <h2 class="section-title">Get in Touch with devaru007</h2>
-            <p>Have questions about my services or want to collaborate? I'm always happy to chat!</p>
+            <h2>Get in Touch with devaru007</h2>
+            <p>Have questions, need assistance, or want to collaborate? I'm always available on Discord!</p>
 
             <div class="discord-section pulse">
-                <h3>🎮 Discord Support</h3>
-                <div class="discord-badge">OFFICIAL DISCORD ID</div>
+                <h3>💜 Connect on Discord</h3>
+                <div class="discord-badge">🎮 OFFICIAL DISCORD ID</div>
                 <div class="discord-id-display">devaru007</div>
-                <p>Feel free to DM devaru007 on Discord for:</p>
-                <p>
+
+                <p>Contact devaru007 for:</p>
+                <p style="line-height: 2;">
                     ✓ Discord Bot Development & Inquiries<br>
-                    ✓ Game Server Hosting Questions<br>
+                    ✓ Premium Game Server Hosting<br>
                     ✓ Minecraft Network Information<br>
-                    ✓ Collaboration & Partnership Opportunities<br>
-                    ✓ Custom Project Development
+                    ✓ Partnership & Collaboration<br>
+                    ✓ Custom Project Development<br>
+                    ✓ 24/7 Technical Support
                 </p>
-                <button class="copy-id-btn" onclick="copyDiscordID()">📋 Copy Discord ID: devaru007</button>
+
+                <button class="copy-id-btn" onclick="copyDiscordID()">📋 Copy: devaru007</button>
             </div>
 
-            <a href="https://discord.com/users/devaru007" class="btn btn-primary">Message devaru007 on Discord</a>
+            <button class="btn btn-primary" onclick="openDiscordDM()" style="margin-top: 2rem; padding: 1.2rem 2.5rem; font-size: 1.1rem;">
+                💬 Message devaru007 on Discord
+            </button>
         </div>
     </section>
 
+    <!-- Modals -->
+    <!-- Discord Bot Modal -->
+    <div id="discordbotModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('discordbot')">&times;</span>
+            <h2>🤖 Discord Bot Information</h2>
+            <p>Professional Discord bot development with advanced features:</p>
+            <ul class="modal-list">
+                <li>Custom Command Development</li>
+                <li>Moderation & Security Tools</li>
+                <li>Music & Entertainment Bots</li>
+                <li>User Management Systems</li>
+                <li>Analytics & Statistics</li>
+                <li>24/7 Uptime & Support</li>
+            </ul>
+            <p><strong>Pricing:</strong> Contact for custom quotes based on requirements.</p>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-primary" onclick="openDiscordDM()">DM for Details</button>
+                <button class="modal-btn modal-btn-secondary" onclick="closeModal('discordbot')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hosting Modal -->
+    <div id="hostingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('hosting')">&times;</span>
+            <h2>⚡ Game Server Hosting</h2>
+            <p><strong>Cherry Nodes</strong> - Premium Infrastructure</p>
+            <ul class="modal-list">
+                <li>Standard: Starting at $5/month</li>
+                <li>Professional: $15/month</li>
+                <li>Enterprise: Custom pricing</li>
+                <li>All plans include 99.9% uptime</li>
+            </ul>
+            <p><strong>AgHost</strong> - Ultra-Performance</p>
+            <ul class="modal-list">
+                <li>Performance Plan: $8/month</li>
+                <li>Elite Plan: $20/month</li>
+                <li>Ultra-low latency guaranteed</li>
+            </ul>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-primary" onclick="openDiscordDM()">Get Hosting</button>
+                <button class="modal-btn modal-btn-secondary" onclick="closeModal('hosting')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Minecraft Modal -->
+    <div id="minecraftModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('minecraft')">&times;</span>
+            <h2>⛏️ Minecraft Networks</h2>
+            <p><strong>MineCore | Lifesteal & FFA</strong></p>
+            <ul class="modal-list">
+                <li>2 Game Modes Available</li>
+                <li>1000+ Active Players</li>
+                <li>Daily Tournaments & Events</li>
+                <li>Java 1.8 - Latest Support</li>
+                <li>Premium Ranks & Cosmetics</li>
+            </ul>
+            <p><strong>Ag Network</strong></p>
+            <ul class="modal-list">
+                <li>Multi-Server Ecosystem</li>
+                <li>Cross-Server Economy</li>
+                <li>Custom Game Modes</li>
+                <li>Growing Community</li>
+            </ul>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-primary" onclick="openDiscordDM()">Join Server</button>
+                <button class="modal-btn modal-btn-secondary" onclick="closeModal('minecraft')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GitHub Modal -->
+    <div id="githubModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('github')">&times;</span>
+            <h2>🐙 GitHub Profile</h2>
+            <p>devaru007's GitHub profile is coming soon! Check back later for open-source projects and contributions.</p>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-primary" onclick="window.open('https://github.com', '_blank')">Visit GitHub</button>
+                <button class="modal-btn modal-btn-secondary" onclick="closeModal('github')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- YouTube Modal -->
+    <div id="youtubeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('youtube')">&times;</span>
+            <h2>▶️ YouTube Channel</h2>
+            <p>Subscribe to devaru007's YouTube channel for tutorials, gameplay, and announcements!</p>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-primary" onclick="window.open('https://youtube.com', '_blank')">Visit YouTube</button>
+                <button class="modal-btn modal-btn-secondary" onclick="closeModal('youtube')">Close</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 <strong>devaru007</strong>. All rights reserved. | <span class="footer-discord-id">Discord: devaru007</span> | Built with ❤️ for the gaming community</p>
+        <p>&copy; 2026 <strong>devaru007</strong> | Discord Bot • Game Hosting • Minecraft Networks | <span class="footer-discord-id">Discord: devaru007</span> | Built with 💜 for the gaming community</p>
     </footer>
 
     <script>
@@ -853,17 +1177,95 @@
                 const originalText = btn.textContent;
                 btn.textContent = '✅ Copied: devaru007';
                 btn.classList.add('copied');
+                
+                showToast('✅ Discord ID copied to clipboard!');
+                
                 setTimeout(() => {
                     btn.textContent = originalText;
                     btn.classList.remove('copied');
                 }, 2000);
+            }).catch(err => {
+                showToast('❌ Failed to copy Discord ID', 'error');
             });
+        }
+
+        // Open Discord DM
+        function openDiscordDM() {
+            const discordUrl = 'https://discord.com/users/devaru007';
+            window.open(discordUrl, '_blank');
+            showToast('🎮 Opening Discord...');
+        }
+
+        // Open Discord (external link)
+        function openDiscord(event) {
+            event.preventDefault();
+            openDiscordDM();
+            return false;
+        }
+
+        // Send Email
+        function sendEmail() {
+            const email = 'devaru007@email.com';
+            window.location.href = `mailto:${email}?subject=Inquiry from devaru007 Portfolio`;
+            showToast('📧 Opening email client...');
+        }
+
+        // Modal Functions
+        function showModal(type) {
+            const modals = {
+                'discordbot': 'discordbotModal',
+                'hosting': 'hostingModal',
+                'minecraft': 'minecraftModal',
+                'github': 'githubModal',
+                'youtube': 'youtubeModal'
+            };
+            
+            const modalId = modals[type];
+            if (modalId) {
+                document.getElementById(modalId).style.display = 'block';
+            }
+        }
+
+        function closeModal(type) {
+            const modals = {
+                'discordbot': 'discordbotModal',
+                'hosting': 'hostingModal',
+                'minecraft': 'minecraftModal',
+                'github': 'githubModal',
+                'youtube': 'youtubeModal'
+            };
+            
+            const modalId = modals[type];
+            if (modalId) {
+                document.getElementById(modalId).style.display = 'none';
+            }
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+
+        // Toast Notification
+        function showToast(message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
         }
 
         // Music Player
         const audio = document.getElementById('bgMusic');
         const musicToggle = document.getElementById('musicToggle');
-        const musicPlayer = document.getElementById('musicPlayer');
         let isPlaying = false;
 
         musicToggle.addEventListener('click', () => {
@@ -872,16 +1274,26 @@
                 musicToggle.textContent = '🔊';
                 isPlaying = false;
             } else {
-                audio.play().catch(err => console.log('Audio play error:', err));
+                audio.play().catch(err => {
+                    console.log('Audio play error:', err);
+                    showToast('⚠️ Could not play audio. Click to try again.');
+                });
                 musicToggle.textContent = '🔇';
                 isPlaying = true;
             }
         });
 
-        // Allow browser autoplay with muted audio
+        // Autoplay (muted initially for browser compatibility)
         window.addEventListener('load', () => {
             audio.muted = true;
             audio.play().catch(err => console.log('Autoplay blocked'));
+        });
+
+        // Allow unmuting after user interaction
+        document.addEventListener('click', () => {
+            if (audio.muted) {
+                audio.muted = false;
+            }
         });
 
         // Theme Toggle
@@ -891,7 +1303,8 @@
         themeToggle.addEventListener('click', () => {
             isDark = !isDark;
             document.body.style.filter = isDark ? 'invert(0)' : 'invert(1)';
-            themeToggle.textContent = isDark ? '🌙 Dark' : '☀️ Light';
+            themeToggle.textContent = isDark ? '🌙' : '☀️';
+            showToast(isDark ? '🌙 Dark Mode' : '☀️ Light Mode');
         });
 
         // Smooth Scroll
@@ -908,8 +1321,30 @@
             });
         });
 
-        // Image Loading (Replace with your actual image URL)
-        document.getElementById('heroImage').src = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAYABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBP/EAB4QAAICAQQDAQAAAAAAAAAAAAECAAMEBRExEhMhIv/EABUBAQEAAAAAAAAAAAAAAAAAAAMEBP/EABsRAAMAAgIDAAAAAAAAAAAAAAEAESExUWGBkcH/2gAMAwEAAhEDEQA/AOCiIgIiICIiAiIgIiICIiAiIgJ5qvWZ0yNzFz1EtEREBERAREQEREBERAREQEREBEREBERAREQEREBERAREQEREH/Z';
+        // Button Click Effects
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (this.textContent.includes('📩')) {
+                    // Already handled by onclick
+                } else if (this.textContent.includes('📋')) {
+                    // Already handled by onclick
+                }
+            });
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Close modals with ESC
+            if (e.key === 'Escape') {
+                const modals = document.querySelectorAll('.modal');
+                modals.forEach(modal => {
+                    modal.style.display = 'none';
+                });
+            }
+        });
+
+        // Log loaded
+        console.log('🎮 devaru007 Portfolio loaded successfully!');
     </script>
 </body>
 </html>
