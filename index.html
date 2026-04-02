@@ -43,59 +43,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Background Music Player */
-        .music-player {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-            background: rgba(30, 30, 30, 0.95);
-            padding: 12px 18px;
-            border-radius: 50px;
-            border: 2px solid #a855f7;
-            box-shadow: 0 8px 32px rgba(168, 85, 247, 0.4);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            backdrop-filter: blur(10px);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .music-player:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 48px rgba(168, 85, 247, 0.6);
-        }
-
-        .music-toggle {
-            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
-            border: none;
-            color: white;
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .music-toggle:hover {
-            transform: scale(1.1);
-        }
-
-        .music-info {
-            font-size: 12px;
-            color: #a0a0a0;
-            font-weight: 500;
-        }
-
-        audio {
-            display: none;
-        }
-
         /* Navigation */
         nav {
             position: fixed;
@@ -187,14 +134,11 @@
         .hero {
             margin-top: 80px;
             min-height: calc(100vh - 80px);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
             align-items: center;
-            gap: 3rem;
+            justify-content: center;
             padding: 3rem 2rem;
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
+            text-align: center;
             animation: fadeIn 0.8s ease;
         }
 
@@ -207,6 +151,10 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        .hero-content {
+            max-width: 900px;
         }
 
         .hero-content h1 {
@@ -226,6 +174,7 @@
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 0.7rem;
             animation: pulse-text 2s ease-in-out infinite;
         }
@@ -247,6 +196,7 @@
             gap: 1.2rem;
             margin-bottom: 2rem;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         .btn {
@@ -292,6 +242,7 @@
             display: flex;
             gap: 1.2rem;
             margin-top: 2.5rem;
+            justify-content: center;
         }
 
         .social-icon {
@@ -327,41 +278,14 @@
             box-shadow: 0 15px 35px rgba(168, 85, 247, 0.6);
         }
 
-        /* Hero Image */
-        .hero-image {
-            position: relative;
-            height: 650px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .social-icon.email {
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+            color: white;
+            box-shadow: 0 8px 20px rgba(168, 85, 247, 0.4);
         }
 
-        .image-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(168, 85, 247, 0.4);
-            border: 3px solid #a855f7;
-        }
-
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .image-container:hover img {
-            transform: scale(1.05);
-        }
-
-        .image-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.25) 0%, transparent 100%);
-            border-radius: 25px;
+        .social-icon.email:hover {
+            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.6);
         }
 
         /* Services Section */
@@ -495,6 +419,22 @@
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 700;
+        }
+
+        .service-info-box {
+            background: rgba(168, 85, 247, 0.15);
+            border-left: 4px solid #a855f7;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            color: #c0c0c0;
+        }
+
+        .service-info-box strong {
+            color: #a855f7;
+            display: block;
+            margin-bottom: 0.3rem;
         }
 
         .service-buttons {
@@ -720,6 +660,19 @@
             font-weight: bold;
         }
 
+        .server-ip-box {
+            background: rgba(168, 85, 247, 0.2);
+            border: 2px solid #a855f7;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            text-align: center;
+        }
+
         .modal-buttons {
             display: flex;
             gap: 1rem;
@@ -790,27 +743,15 @@
             }
 
             .hero {
-                grid-template-columns: 1fr;
-                margin-top: 250px;
-                gap: 2rem;
+                margin-top: 200px;
             }
 
             .hero-content h1 {
                 font-size: 2.8rem;
             }
 
-            .hero-image {
-                height: 400px;
-            }
-
             .services-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .music-player {
-                bottom: 20px;
-                right: 20px;
-                padding: 10px 12px;
             }
 
             .contact h2 {
@@ -837,22 +778,19 @@
             .services-header h2 {
                 font-size: 2.2rem;
             }
+
+            .social-links {
+                gap: 0.8rem;
+            }
+
+            .social-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 1.4rem;
+            }
         }
 
         /* Animations */
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-25px);
-            }
-        }
-
-        .float {
-            animation: float 3.5s ease-in-out infinite;
-        }
-
         @keyframes pulse {
             0%, 100% {
                 box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
@@ -869,7 +807,7 @@
         /* Toast Notification */
         .toast {
             position: fixed;
-            bottom: 100px;
+            bottom: 30px;
             right: 30px;
             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             color: white;
@@ -901,20 +839,28 @@
                 opacity: 0;
             }
         }
+
+        .copy-ip-btn {
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .copy-ip-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(168, 85, 247, 0.4);
+        }
     </style>
 </head>
 <body>
     <div class="animated-bg"></div>
-
-    <!-- Background Music Player -->
-    <div class="music-player" id="musicPlayer" title="Toggle Background Music">
-        <button class="music-toggle" id="musicToggle">🎵</button>
-        <span class="music-info">Music</span>
-    </div>
-
-    <audio id="bgMusic" loop>
-        <source src="https://www.youtube.com/watch?v=Vumf2BbwL50&list=RDVumf2BbwL50&start_radio=1" type="audio/mpeg">
-    </audio>
 
     <!-- Navigation -->
     <nav>
@@ -944,16 +890,7 @@
 
             <div class="social-links">
                 <a href="https://discord.com/users/devaru007" class="social-icon discord" title="Discord: devaru007" onclick="return openDiscord(event)">💬</a>
-                <a href="javascript:void(0)" class="social-icon" title="GitHub" onclick="showModal('github')">🐙</a>
-                <a href="javascript:void(0)" class="social-icon" title="YouTube" onclick="showModal('youtube')">▶️</a>
-                <a href="javascript:void(0)" class="social-icon" title="Email" onclick="sendEmail()">✉️</a>
-            </div>
-        </div>
-
-        <div class="hero-image float">
-            <div class="image-container">
-                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAYABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBP/EAB4QAAICAQQDAQAAAAAAAAAAAAECAAMEBRExEhMhIv/EABUBAQEAAAAAAAAAAAAAAAAAAAMEBP/EABsRAAMAAgIDAAAAAAAAAAAAAAEAESExUWGBkcH/2gAMAwEAAhEDEQA/AOCiIgIiICIiAiIgIiICIiAiIgJ5qvWZ0yNzFz1EtEREBERAREQEREBERAREQEREBEREBERAREQEREBERAREQEREH/Z" alt="devaru007" id="heroImage">
-                <div class="image-overlay"></div>
+                <a href="mailto:aryanghorpade001@gmail.com" class="social-icon email" title="Email: aryanghorpade001@gmail.com" onclick="return sendEmail(event)">✉️</a>
             </div>
         </div>
     </section>
@@ -987,6 +924,11 @@
                         <span class="service-tag">Support</span>
                     </div>
 
+                    <div class="service-info-box">
+                        <strong>Contact for Info:</strong>
+                        DM on Discord or email us for custom bot development
+                    </div>
+
                     <div class="service-buttons">
                         <button class="service-btn service-btn-primary" onclick="openDiscordDM()">📩 DM Me</button>
                         <button class="service-btn service-btn-secondary" onclick="showModal('discordbot')">📋 Info</button>
@@ -1013,6 +955,11 @@
                         <span class="service-tag">Cherry Nodes</span>
                         <span class="service-tag">AgHost</span>
                         <span class="service-tag">Fast</span>
+                    </div>
+
+                    <div class="service-info-box">
+                        <strong>Starting from $5/month</strong>
+                        Premium hosting with 24/7 support
                     </div>
 
                     <div class="service-buttons">
@@ -1043,8 +990,13 @@
                         <span class="service-tag">Community</span>
                     </div>
 
+                    <div class="service-info-box">
+                        <strong>Server IP:</strong>
+                        play.nksmp.xyz:25526
+                    </div>
+
                     <div class="service-buttons">
-                        <button class="service-btn service-btn-primary" onclick="openDiscordDM()">🎮 Join</button>
+                        <button class="service-btn service-btn-primary" onclick="copyServerIP()">🎮 Copy IP</button>
                         <button class="service-btn service-btn-secondary" onclick="showModal('minecraft')">📋 Info</button>
                     </div>
                 </div>
@@ -1056,10 +1008,10 @@
     <section class="contact" id="contact">
         <div class="contact-content">
             <h2>Get in Touch with devaru007</h2>
-            <p>Have questions, need assistance, or want to collaborate? I'm always available on Discord!</p>
+            <p>Have questions, need assistance, or want to collaborate? Contact us on Discord or Email!</p>
 
             <div class="discord-section pulse">
-                <h3>💜 Connect on Discord</h3>
+                <h3>💜 Connect with Me</h3>
                 <div class="discord-badge">🎮 OFFICIAL DISCORD ID</div>
                 <div class="discord-id-display">devaru007</div>
 
@@ -1074,6 +1026,11 @@
                 </p>
 
                 <button class="copy-id-btn" onclick="copyDiscordID()">📋 Copy: devaru007</button>
+
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid rgba(168, 85, 247, 0.3);">
+                    <p style="font-size: 1rem; margin-bottom: 0.8rem;">📧 Email us at:</p>
+                    <a href="mailto:aryanghorpade001@gmail.com" style="color: #a855f7; font-size: 1.1rem; font-weight: 700; text-decoration: none;">aryanghorpade001@gmail.com</a>
+                </div>
             </div>
 
             <button class="btn btn-primary" onclick="openDiscordDM()" style="margin-top: 2rem; padding: 1.2rem 2.5rem; font-size: 1.1rem;">
@@ -1098,8 +1055,11 @@
                 <li>24/7 Uptime & Support</li>
             </ul>
             <p><strong>Pricing:</strong> Contact for custom quotes based on requirements.</p>
+            <p style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid rgba(168, 85, 247, 0.3);">
+                <strong>Contact:</strong> Email at <a href="mailto:aryanghorpade001@gmail.com" style="color: #a855f7;">aryanghorpade001@gmail.com</a> or DM on Discord
+            </p>
             <div class="modal-buttons">
-                <button class="modal-btn modal-btn-primary" onclick="openDiscordDM()">DM for Details</button>
+                <button class="modal-btn modal-btn-primary" onclick="openDiscordDM()">DM on Discord</button>
                 <button class="modal-btn modal-btn-secondary" onclick="closeModal('discordbot')">Close</button>
             </div>
         </div>
@@ -1123,6 +1083,9 @@
                 <li>Elite Plan: $20/month</li>
                 <li>Ultra-low latency guaranteed</li>
             </ul>
+            <p style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid rgba(168, 85, 247, 0.3);">
+                <strong>Contact for hosting:</strong> Email <a href="mailto:aryanghorpade001@gmail.com" style="color: #a855f7;">aryanghorpade001@gmail.com</a>
+            </p>
             <div class="modal-buttons">
                 <button class="modal-btn modal-btn-primary" onclick="openDiscordDM()">Get Hosting</button>
                 <button class="modal-btn modal-btn-secondary" onclick="closeModal('hosting')">Close</button>
@@ -1143,6 +1106,13 @@
                 <li>Java 1.8 - Latest Support</li>
                 <li>Premium Ranks & Cosmetics</li>
             </ul>
+            
+            <div class="server-ip-box">
+                Server IP: play.nksmp.xyz:25526
+            </div>
+
+            <button class="copy-ip-btn" onclick="copyServerIP()">📋 Copy Server IP</button>
+
             <p><strong>Ag Network</strong></p>
             <ul class="modal-list">
                 <li>Multi-Server Ecosystem</li>
@@ -1151,41 +1121,15 @@
                 <li>Growing Community</li>
             </ul>
             <div class="modal-buttons">
-                <button class="modal-btn modal-btn-primary" onclick="openDiscordDM()">Join Server</button>
+                <button class="modal-btn modal-btn-primary" onclick="copyServerIP()">Join Server</button>
                 <button class="modal-btn modal-btn-secondary" onclick="closeModal('minecraft')">Close</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- GitHub Modal -->
-    <div id="githubModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('github')">&times;</span>
-            <h2>🐙 GitHub Profile</h2>
-            <p>devaru007's GitHub profile is coming soon! Check back later for open-source projects and contributions.</p>
-            <div class="modal-buttons">
-                <button class="modal-btn modal-btn-primary" onclick="window.open('https://github.com', '_blank')">Visit GitHub</button>
-                <button class="modal-btn modal-btn-secondary" onclick="closeModal('github')">Close</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- YouTube Modal -->
-    <div id="youtubeModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('youtube')">&times;</span>
-            <h2>▶️ YouTube Channel</h2>
-            <p>Subscribe to devaru007's YouTube channel for tutorials, gameplay, and announcements!</p>
-            <div class="modal-buttons">
-                <button class="modal-btn modal-btn-primary" onclick="window.open('https://youtube.com', '_blank')">Visit YouTube</button>
-                <button class="modal-btn modal-btn-secondary" onclick="closeModal('youtube')">Close</button>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 <strong>devaru007</strong> | Discord Bot • Game Hosting • Minecraft Networks | <span class="footer-discord-id">Discord: devaru007</span> | Built with 💜 for the gaming community</p>
+        <p>&copy; 2026 <strong>devaru007</strong> | Discord Bot • Game Hosting • Minecraft Networks | <span class="footer-discord-id">Discord: devaru007</span> | Email: aryanghorpade001@gmail.com | Built with 💜 for the gaming community</p>
     </footer>
 
     <script>
@@ -1209,6 +1153,16 @@
             });
         }
 
+        // Copy Server IP Function
+        function copyServerIP() {
+            const serverIP = 'play.nksmp.xyz:25526';
+            navigator.clipboard.writeText(serverIP).then(() => {
+                showToast('✅ Server IP copied to clipboard!');
+            }).catch(err => {
+                showToast('❌ Failed to copy Server IP', 'error');
+            });
+        }
+
         // Open Discord DM
         function openDiscordDM() {
             const discordUrl = 'https://discord.com/users/devaru007';
@@ -1224,10 +1178,12 @@
         }
 
         // Send Email
-        function sendEmail() {
-            const email = 'devaru007@email.com';
+        function sendEmail(event) {
+            event.preventDefault();
+            const email = 'aryanghorpade001@gmail.com';
             window.location.href = `mailto:${email}?subject=Inquiry from devaru007 Portfolio`;
             showToast('📧 Opening email client...');
+            return false;
         }
 
         // Modal Functions
@@ -1235,9 +1191,7 @@
             const modals = {
                 'discordbot': 'discordbotModal',
                 'hosting': 'hostingModal',
-                'minecraft': 'minecraftModal',
-                'github': 'githubModal',
-                'youtube': 'youtubeModal'
+                'minecraft': 'minecraftModal'
             };
             
             const modalId = modals[type];
@@ -1250,9 +1204,7 @@
             const modals = {
                 'discordbot': 'discordbotModal',
                 'hosting': 'hostingModal',
-                'minecraft': 'minecraftModal',
-                'github': 'githubModal',
-                'youtube': 'youtubeModal'
+                'minecraft': 'minecraftModal'
             };
             
             const modalId = modals[type];
@@ -1282,39 +1234,6 @@
                 toast.remove();
             }, 3000);
         }
-
-        // Music Player
-        const audio = document.getElementById('bgMusic');
-        const musicToggle = document.getElementById('musicToggle');
-        let isPlaying = false;
-
-        musicToggle.addEventListener('click', () => {
-            if (isPlaying) {
-                audio.pause();
-                musicToggle.textContent = '🔊';
-                isPlaying = false;
-            } else {
-                audio.play().catch(err => {
-                    console.log('Audio play error:', err);
-                    showToast('⚠️ Could not play audio. Click to try again.');
-                });
-                musicToggle.textContent = '🔇';
-                isPlaying = true;
-            }
-        });
-
-        // Autoplay (muted initially for browser compatibility)
-        window.addEventListener('load', () => {
-            audio.muted = true;
-            audio.play().catch(err => console.log('Autoplay blocked'));
-        });
-
-        // Allow unmuting after user interaction
-        document.addEventListener('click', () => {
-            if (audio.muted) {
-                audio.muted = false;
-            }
-        });
 
         // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
